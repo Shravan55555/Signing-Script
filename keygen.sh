@@ -92,3 +92,5 @@ echo "Product makefile created: $destination_dir/product.mk"
 echo ""
 echo "To use these keys in your build, include the following in your device makefile:"
 echo "\$(call inherit-product, $destination_dir/product.mk)"
+
+exit 0
