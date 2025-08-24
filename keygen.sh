@@ -15,36 +15,8 @@ mkdir -p "$destination_dir"
 # Define default subject line
 default_subject="/C=PH/ST=Philippines/L=Manila/O=RexC/OU=RexC/CN=RexC/emailAddress=dtiven13@gmail.com"
 
-# Ask the user if they want to use default values or enter new ones
-read -p "Do you want to use the default subject line: '$default_subject'? (y/n): " use_default
-
-if [ "$use_default" == "y" ]; then
-    subject="$default_subject"
-else
-    echo "Enter certificate details:"
-    read -p "Country (C) [PH]: " country
-    country=${country:-PH}
-    
-    read -p "State (ST) [Philippines]: " state
-    state=${state:-Philippines}
-    
-    read -p "City (L) [Manila]: " city
-    city=${city:-Manila}
-    
-    read -p "Organization (O) [RexC]: " org
-    org=${org:-RexC}
-    
-    read -p "Organizational Unit (OU) [RexC]: " ou
-    ou=${ou:-RexC}
-    
-    read -p "Common Name (CN) [RexC]: " cn
-    cn=${cn:-RexC}
-    
-    read -p "Email Address [dtiven13@gmail.com]: " email
-    email=${email:-dtiven13@gmail.com}
-    
-    subject="/C=$country/ST=$state/L=$city/O=$org/OU=$ou/CN=$cn/emailAddress=$email"
-fi
+# Automatically use default subject line
+subject="$default_subject"
 
 echo "Using subject: $subject"
 
